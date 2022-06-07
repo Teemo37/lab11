@@ -28,7 +28,7 @@ $ cd tmp
 ```
 
 ```sh
-$ wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
+$ wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz - скачать libevent 2.1.8 (это асинхронная библиотека уведомлений о событиях)
 $ tar -xvzf libevent-2.1.8-stable.tar.gz
 $ cd libevent-2.1.8-stable
 $ ./configure --prefix=${HOME_PREFIX}
@@ -37,7 +37,7 @@ $ cd ..
 ```
 
 ```sh
-$ wget http://invisible-island.net/datafiles/release/ncurses.tar.gz
+$ wget http://invisible-island.net/datafiles/release/ncurses.tar.gz - скачать библиотеку (ncurses), предназначенную для управления ввода-вывода на терминал, позволяет задавать экранные координаты
 $ tar -xvzf ncurses.tar.gz
 $ cd ncurses-5.9
 $ ./configure --prefix=${HOME_PREFIX}
@@ -47,7 +47,7 @@ $ cd ..
 
 
 ```sh
-$ wget https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz
+$ wget https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz - скачать tmux - терминальный мультиплексор, позволяет создавать несколько терминалов, получать к ним доступ и управлять с одного экрана)
 $ tar -xvzf tmux-2.5.tar.gz
 $ cd tmux-2.5
 $ ./configure --prefix=${HOME_PREFIX} CFLAGS="-I${HOME_PREFIX}/include -I${HOME_PREFIX}/include/ncurses" LDFLAGS="-L${HOME_PREFIX}/lib"
@@ -56,7 +56,7 @@ $ cd ..
 ```
 
 ```sh
-$ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+$ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip - скачать ngrok - это глобально распределенный обратный прокси-сервер, который работает с вашими веб-сервисами, работающими в любой облачной или частной сети, или на вашем компьютере.
 $ unizp ngrok-stable-linux-amd64.zip
 $ mv ngrok ${HOME_PREFIX}/bin
 ```
@@ -73,28 +73,28 @@ $ rm -rf tmp install
 ```
 
 ```sh
-$ brew install tmux ngrok # or use linuxbrew 🎉
+$ brew install tmux ngrok # or use linuxbrew 🎉 - brew устанавливает tmux и ngrok
 ```
 
 ```sh
-$ tmux new -s session_with_group
+$ tmux new -s session_with_group - создание новой сессии
 ```
 
 ```sh
-# Alisa:
-$ open https://ngrok.com/signup
+# Alisa: (Создать)
+$ open https://ngrok.com/signup - открыть сайт нгрок, узнать токен оттуда
 $ export NGROK_TOKEN=<токен>
-$ ngrok authtoken ${NGROK_TOKEN}
-$ ngrok tcp 22
+$ ngrok authtoken ${NGROK_TOKEN} - авторизоваться
+$ ngrok tcp 22 - создает туннель с протоколом tcp с портом 22
 <порт_ngrok_сервера>
 ```
 
 ```sh
-# Bob:
-$ ssh ${USERNAME}@0.tcp.ngrok.io -p<порт_ngrok_сервера>
+# Bob: (Присоединиться)
+$ ssh ${USERNAME}@0.tcp.ngrok.io -p<порт_ngrok_сервера> - через протокол ssh установить соединение с открытой сессий в нгрок
 <пароль_от_учетной_записи>
-$ tmux a -t session_with_group
-$ <C-B>"
+$ tmux a -t session_with_group - присоединиться к сессии
+$ <C-B>" - разделить экран по горизонтали
 ```
 
 ## Report
